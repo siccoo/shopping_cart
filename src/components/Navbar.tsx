@@ -15,6 +15,8 @@ import MailIcon from '@material-ui/icons/Mail';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MoreIcon from '@material-ui/icons/MoreVert';
 
+import JupiterIcon from "../images/Jupiter.png";
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     grow: {
@@ -78,6 +80,11 @@ const useStyles = makeStyles((theme: Theme) =>
         display: 'none',
       },
     },
+    // typography: {
+    //   margin: 0,
+    //   padding: 0,
+    //   boxSizing: 'border-box',
+    // },
   }),
 );
 
@@ -167,16 +174,18 @@ export default function PrimarySearchAppBar() {
     <div className={classes.grow}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="open drawer"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            <a href="/">
+              <img src={JupiterIcon} alt="jupiter"  />
+            </a>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

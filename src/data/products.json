@@ -1,5 +1,4 @@
-const data = {
-    products: [
+[
         {
           "productId": {
             "value": "0d101385-3cdc-464b-8431-ec0b50618b8a"
@@ -8001,6 +8000,3 @@ const data = {
           "isExplicitCaseQuantityRequired": false
         }
       ]
-}
-
-export default data;
