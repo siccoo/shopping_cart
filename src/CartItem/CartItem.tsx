@@ -17,10 +17,10 @@ const CartItem: React.FC<Props> = ({item, addToCart, removeFromCart}) => (
         <div>
             <h3>{item.title}</h3>
             <div className="information">
-                <p>Amount: ₦{item.amount}</p>
+                <p>Price: ₦{item.amount}</p>
                 <p>Total: ₦{(item.amount * item.amount).toFixed(2)}</p>
             </div>
-            <div>
+            <div className="button">
                 <Button
                     size="small"
                     disableElevation

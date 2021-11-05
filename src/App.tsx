@@ -4,7 +4,7 @@ import { useState } from "react";
 import Item from "./Item/Item";
 import Cart from "./Cart/Cart";
 import Drawer from "@material-ui/core/Drawer";
-import LinearProgress from "@material-ui/core/LinearProgress";
+// import LinearProgress from "@material-ui/core/LinearProgress";
 import Grid from "@material-ui/core/Grid";
 import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Badge from "@material-ui/core/Badge";
@@ -49,7 +49,18 @@ const App = () => {
     });
   };
 
-  const handleRemoveFromCart = () => null;
+  const handleRemoveFromCart = (id: number) => {
+    setCartItems((prevState) =>
+      prevState.reduce((accumulator, item) => {
+        if (item.id === id) {
+          if (item.amount === 1) return accumulator;
+          return [...accumulator, { ...item, amount: item.amount - 1 }];
+        } else {
+          return [...accumulator, item];
+        }
+      }, [] as CartItemType[])
+    );
+  };
 
   // if(isLoading) return <LinearProgress />;
   // if(error) return <div>Something went wrong...</div>
