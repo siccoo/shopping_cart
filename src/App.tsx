@@ -13,7 +13,7 @@ import Navbar from "./components/Navbar";
 import { products } from "./data/product";
 
 // Styles
-import { Wrapper, StyledButton } from "./App.styles";
+import { Wrapper, StyledButton, GlobalStyle } from "./App.styles";
 
 // Types
 export type CartItemType = {
@@ -65,32 +65,36 @@ const App = () => {
   // if(isLoading) return <LinearProgress />;
   // if(error) return <div>Something went wrong...</div>
   return (
-    <Wrapper>
-      <Navbar />
-      <Drawer
-        anchor="right"
-        open={cartIsOpen}
-        onClose={() => setCartIsOpen(false)}
-      >
-        <Cart
-          cartItems={cartItems}
-          addToCart={handleAddToCart}
-          removeFromCart={handleRemoveFromCart}
-        />
-      </Drawer>
-      <StyledButton onClick={() => setCartIsOpen(true)}>
-        <Badge badgeContent={getTotalItems(cartItems)} color="error">
-          <AddShoppingCartIcon />
-        </Badge>
-      </StyledButton>
-      <Grid container spacing={4}>
-        {products?.map((item) => (
-          <Grid item key={item.id} xs={12} sm={3}>
-            <Item item={item} handleAddToCart={handleAddToCart} />
-          </Grid>
-        ))}
-      </Grid>
-    </Wrapper>
+    <>
+      <GlobalStyle>
+      <Wrapper>
+        <Navbar />
+        <Drawer
+          anchor="right"
+          open={cartIsOpen}
+          onClose={() => setCartIsOpen(false)}
+        >
+          <Cart
+            cartItems={cartItems}
+            addToCart={handleAddToCart}
+            removeFromCart={handleRemoveFromCart}
+          />
+        </Drawer>
+        <StyledButton onClick={() => setCartIsOpen(true)}>
+          <Badge badgeContent={getTotalItems(cartItems)} color="error">
+            <AddShoppingCartIcon />
+          </Badge>
+        </StyledButton>
+        <Grid container spacing={4}>
+          {products?.map((item) => (
+            <Grid item key={item.id} xs={12} sm={3}>
+              <Item item={item} handleAddToCart={handleAddToCart} />
+            </Grid>
+          ))}
+        </Grid>
+      </Wrapper>
+    </GlobalStyle>
+    </>
   );
 };
 
