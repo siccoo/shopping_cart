@@ -32,7 +32,22 @@ const App = () => {
   const getTotalItems = (items: CartItemType[]) =>
     items.reduce((accumulator: number, item) => accumulator + item.amount, 0);
 
-  const handleAddToCart = (clickedItem: CartItemType) => null;
+  const handleAddToCart = (clickedItem: CartItemType) => {
+    setCartItems((prevState) => {
+      // Is the item already in the cart
+      const isItemInCart = prevState.find((item) => item.id === clickedItem.id);
+
+      if (isItemInCart) {
+        return prevState.map((item) =>
+          item.id === clickedItem.id
+            ? { ...item, amount: item.amount + 1 }
+            : item
+        );
+      }
+      // Initial time the item is added
+      return [...prevState, { ...clickedItem, amount: 1 }];
+    });
+  };
 
   const handleRemoveFromCart = () => null;
 
@@ -54,7 +69,7 @@ const App = () => {
       </Drawer>
       <StyledButton onClick={() => setCartIsOpen(true)}>
         <Badge badgeContent={getTotalItems(cartItems)} color="error">
-          <AddShoppingCartIcon style={{ float: "right" }} />
+          <AddShoppingCartIcon />
         </Badge>
       </StyledButton>
       <Grid container spacing={4}>

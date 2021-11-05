@@ -5,11 +5,11 @@ const GlobalStyle = createGlobalStyle `
 
 `
 export const Wrapper = styled.div`
-    margin: 40px;
+    // margin: 40px;
 `;
 
 export const StyledButton = styled(IconButton)`
-    position: fixed;
+    position: relative;
     z-index: 100;
     right: 20px;
     top: 20px;
