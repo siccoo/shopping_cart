@@ -80,10 +80,10 @@ const App = () => {
       </Drawer>
       <StyledButton onClick={() => setCartIsOpen(true)}>
         <Badge badgeContent={getTotalItems(cartItems)} color="error">
-          <AddShoppingCartIcon />
+          <AddShoppingCartIcon style={{right: "-10px", top: "-10px", position: "absolute"}} />
         </Badge>
       </StyledButton>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} className="container">
         {products?.map((item) => (
           <Grid item key={item.id} xs={12} sm={3}>
             <Item item={item} handleAddToCart={handleAddToCart} />
