@@ -26,6 +26,7 @@ export type CartItemType = {
 };
 
 const App = () => {
+  const [products, setProducts] = useState(productData)
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [cartItems, setCartItems] = useState([] as CartItemType[]);
   // const { data, isLoading, error} = products[];
@@ -94,7 +95,7 @@ const App = () => {
         </Badge>
       </StyledButton>
       <Grid container spacing={4} className="container">
-        {productData?.map((item) => (
+        {products?.map((item) => (
           <Grid item key={item.id} xs={12} sm={3}>
             <Item item={item} handleAddToCart={handleAddToCart} />
           </Grid>
