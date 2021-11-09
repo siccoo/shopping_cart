@@ -79,7 +79,7 @@ const App = () => {
   };
 
   if(loading) return <LoadingBox />;
-  
+
   return (
     <Wrapper>
       <Navbar />
@@ -100,7 +100,7 @@ const App = () => {
             style={{ right: "-10px", top: "-10px", position: "absolute" }}
           />
         </Badge>
-      </StyledButton>
+      </StyledButton>{" "}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : (
