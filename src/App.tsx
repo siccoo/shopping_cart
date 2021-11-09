@@ -1,4 +1,6 @@
 import { useState } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { ProductsState } from "./productReducer";
 
 // Components
 import Item from "./Item/Item";
@@ -10,7 +12,7 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import Badge from "@material-ui/core/Badge";
 import Navbar from "./components/Navbar";
 
-import { products } from "./data/product";
+import { productData } from "./data/product";
 
 // Styles
 import { Wrapper, StyledButton } from "./App.styles";
@@ -28,6 +30,12 @@ const App = () => {
   const [cartItems, setCartItems] = useState([] as CartItemType[]);
   // const { data, isLoading, error} = products[];
   // console.log(data);
+
+  // const products = useSelector<ProductsState, ProductsState["products"]>(
+  //   (state) => state.products
+  // );
+
+  // const dispatch = useDispatch(); 
 
   const getTotalItems = (items: CartItemType[]) =>
     items.reduce((accumulator: number, item) => accumulator + item.amount, 0);
@@ -80,11 +88,13 @@ const App = () => {
       </Drawer>
       <StyledButton onClick={() => setCartIsOpen(true)}>
         <Badge badgeContent={getTotalItems(cartItems)} color="error">
-          <AddShoppingCartIcon style={{right: "-10px", top: "-10px", position: "absolute"}} />
+          <AddShoppingCartIcon
+            style={{ right: "-10px", top: "-10px", position: "absolute" }}
+          />
         </Badge>
       </StyledButton>
       <Grid container spacing={4} className="container">
-        {products?.map((item) => (
+        {productData?.map((item) => (
           <Grid item key={item.id} xs={12} sm={3}>
             <Item item={item} handleAddToCart={handleAddToCart} />
           </Grid>

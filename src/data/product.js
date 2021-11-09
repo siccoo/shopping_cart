@@ -1,4 +1,4 @@
-export const products = [
+export const productData = [
     {
         "id": 1,
         "image": "https://picsum.photos/200/300",
