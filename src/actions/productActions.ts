@@ -5,8 +5,9 @@ export const listProducts = () => async (dispatch: (arg0: { type: string }) => v
         type: PRODUCT_LIST_REQUEST
     });
     try {
-        const { data } = await fetch("product.js");
-        dispatch({ type: PRODUCT_LIST_SUCCESS, products: data })
+        // const { data } = await fetch("product.js");
+        // dispatch({ type: PRODUCT_LIST_SUCCESS, products: data })
+        dispatch({ type: PRODUCT_LIST_SUCCESS })
     } catch {
         dispatch({ type: PRODUCT_LIST_FAIL })
     }
